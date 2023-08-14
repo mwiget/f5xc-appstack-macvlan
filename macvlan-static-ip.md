@@ -16,7 +16,7 @@ eth0 |                        eth0 |
              default CNI
 ```
 
-|Pod      | IPv4         | IPv6        |
+|Pod      | net1 IPv4    | net1 IPv6   |
 |---------|--------------|-------------|
 | alpine1 | 10.1.0.11/24 | fd10::11/64 |
 | alpine2 | 10.1.0.12/24 | fd10::12/64 |
