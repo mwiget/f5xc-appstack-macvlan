@@ -5,6 +5,8 @@ to provide static IPv4 and IPv6 addresses. iperf3 is installed and can be used t
 the pods.
 
 ```
+  node w0:                      node w1:
+
 +---------+                   +---------+
 |   Pod   | net1         net1 |   Pod   |
 | alpine1 |-------------------| alpine2 |
@@ -73,6 +75,16 @@ Spec:
 Events:    <none>
 ```
 
+Check where the pods are running:
+
+```
+$ k get pods -o wide
+NAME      READY   STATUS    RESTARTS   AGE    IP              NODE   NOMINATED NODE   READINESS GATES
+alpine1   2/2     Running   0          148m   10.1.0.42       w0     <none>           <none>
+alpine2   2/2     Running   0          148m   10.1.0.43       w1     <none>           <none>
+prep-w0   2/2     Running   0          40m    192.168.40.83   w0     <none>           <none>
+prep-w1   2/2     Running   0          40m    192.168.40.82   w1     <none>           <none>
+```
 
 Check IPv4 connectivity between pods:
 
