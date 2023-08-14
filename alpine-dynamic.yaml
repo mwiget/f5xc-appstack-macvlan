@@ -9,7 +9,8 @@ spec:
     kubernetes.io/hostname: w0
   containers:
     - image: alpine
-      command: ["sleep", "infinity"]
+      command: ["/bin/ash"]
+      args: ["-c", "apk add iperf3; iperf3 -s"]
       imagePullPolicy: IfNotPresent
       name: alpine
       securityContext:
@@ -27,7 +28,8 @@ spec:
     kubernetes.io/hostname: w1
   containers:
     - image: alpine
-      command: ["sleep", "infinity"]
+      command: ["/bin/ash"]
+      args: ["-c", "apk add iperf3; iperf3 -s"]
       imagePullPolicy: IfNotPresent
       name: alpine
       securityContext:
