@@ -1,6 +1,6 @@
 ## macvlan with static ip allocation
 
-[macvlan-static.yaml](macvlan-static.yaml) creates 2 alpine pods with individual NetworkAttachmentDefinitio's
+[alpine-static.yaml](alpine-static.yaml) creates 2 alpine pods with individual NetworkAttachmentDefinitio's
 to provide static IPv4 and IPv6 addresses. iperf3 is installed and can be used to test connectivity between
 the pods.
 
