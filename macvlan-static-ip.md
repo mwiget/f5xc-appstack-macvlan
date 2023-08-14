@@ -33,6 +33,17 @@ pod/alpine1 created
 pod/alpine2 created
 ```
 
+Check where the pods are running:
+
+```
+$ k get pods -o wide
+NAME      READY   STATUS    RESTARTS   AGE    IP              NODE   NOMINATED NODE   READINESS GATES
+alpine1   2/2     Running   0          148m   10.1.0.42       w0     <none>           <none>
+alpine2   2/2     Running   0          148m   10.1.0.43       w1     <none>           <none>
+prep-w0   2/2     Running   0          40m    192.168.40.83   w0     <none>           <none>
+prep-w1   2/2     Running   0          40m    192.168.40.82   w1     <none>           <none>
+```
+
 Check network attachment definitions:
 
 ```
@@ -73,17 +84,6 @@ Metadata:
 Spec:
   Config:  { "cniVersion": "0.3.0", "type": "macvlan", "master": "ens16f0", "mode": "bridge", "ipam": { "type": "static", "addresses": [ { "address": "10.1.0.11/24" }, { "address": "fd10::11/64" } ] } }
 Events:    <none>
-```
-
-Check where the pods are running:
-
-```
-$ k get pods -o wide
-NAME      READY   STATUS    RESTARTS   AGE    IP              NODE   NOMINATED NODE   READINESS GATES
-alpine1   2/2     Running   0          148m   10.1.0.42       w0     <none>           <none>
-alpine2   2/2     Running   0          148m   10.1.0.43       w1     <none>           <none>
-prep-w0   2/2     Running   0          40m    192.168.40.83   w0     <none>           <none>
-prep-w1   2/2     Running   0          40m    192.168.40.82   w1     <none>           <none>
 ```
 
 Check IPv4 connectivity between pods:
