@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine1
+  annotations:
+    k8s.v1.cni.cncf.io/networks: default/macvlan-w0-ens16f0
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: w0
+  containers:
+    - image: alpine
+      command: ["sleep", "infinity"]
+      imagePullPolicy: IfNotPresent
+      name: alpine
+      securityContext:
+        privileged: true
+        runAsUser: 0
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine2
+  annotations:
+    k8s.v1.cni.cncf.io/networks: default/macvlan-w1-ens16f0
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: w1
+  containers:
+    - image: alpine
+      command: ["sleep", "infinity"]
+      imagePullPolicy: IfNotPresent
+      name: alpine
+      securityContext:
+        privileged: true
+        runAsUser: 0

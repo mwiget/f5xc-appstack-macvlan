@@ -1,0 +1,14 @@
+.env*
+*tfstate*
+*tfvars
+*tfvars.json
+*.p12
+*.crt
+.terraform*
+*.save
+*.json
+*kubeconfig
+*.cfg
+files
+get-ethernet-info.sh
+deployment.rst.txt
