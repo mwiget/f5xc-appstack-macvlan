@@ -172,5 +172,3 @@ net1      Link encap:Ethernet  HWaddr BA:9C:55:1F:3E:5E
 ```
 $ k delete -f alpine-static.yaml
 ```
-
-L
