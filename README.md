@@ -2,6 +2,9 @@
 
 Collection of simple use cases aroud macvlan on F5 XC Appstack Site. 
 
+- [macvlan with static ip allocation](macvlan-static-ip.md)
+- [macvlan with dynamic ip allocation](macvlan-dynamic-ip.md)
+
 ## Requirements
 
 Existing F5 XC App Stack Site with at least 2 nodes with an additional Ethernet interface.
