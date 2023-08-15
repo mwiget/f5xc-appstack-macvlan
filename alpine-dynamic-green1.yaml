@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine1
+  annotations:
+    k8s.v1.cni.cncf.io/networks: default/macvlan-m1-ens16
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: m1
+  containers:
+    - image: alpine
+      command: ["/bin/ash"]
+      args: ["-c", "apk add iperf3; iperf3 -s"]
+      imagePullPolicy: IfNotPresent
+      name: alpine
+      securityContext:
+        privileged: true
+        runAsUser: 0
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine2
+  annotations:
+    k8s.v1.cni.cncf.io/networks: default/macvlan-m2-ens16
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: m2
+  containers:
+    - image: alpine
+      command: ["/bin/ash"]
+      args: ["-c", "apk add iperf3; iperf3 -s"]
+      imagePullPolicy: IfNotPresent
+      name: alpine
+      securityContext:
+        privileged: true
+        runAsUser: 0
